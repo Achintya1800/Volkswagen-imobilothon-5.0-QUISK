@@ -1,0 +1,185 @@
+# YOLOv10 + DINOv3 Configuration File
+# Based on Ultralytics YOLO configuration format
+
+# Model Configuration
+model:
+  type: yolov10
+  variant: s  # Options: n, s, m, b, l, x
+  pretrained: true
+  weights: yolov10s.pt
+
+# Distillation Configuration
+distillation:
+  enabled: true
+  teacher: dinov2_vitb14  # DINOv2/DINOv3 model
+  method: distillationv2  # v2 uses CLS tokens
+  weight: 0.5  # Balance between detection loss and distillation loss
+  temperature: 4.0  # Softening parameter for distillation
+
+# Dataset Configuration
+data:
+  path: datasets/unified_road_hazards_v10
+  train: images/train
+  val: images/val
+  test: images/test  # optional
+  nc: 4  # number of classes
+  names: ['pothole', 'speed_bump', 'debris', 'crack']
+
+# Training Hyperparameters
+train:
+  epochs: 150
+  batch_size: 16
+  imgsz: 640
+  device: 0  # GPU device, or 'cpu'
+  workers: 8
+  
+  # Optimizer
+  optimizer: AdamW
+  lr0: 0.001  # initial learning rate
+  lrf: 0.01   # final learning rate (lr0 * lrf)
+  momentum: 0.937
+  weight_decay: 0.0005
+  
+  # Scheduler
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  
+  # Data Augmentation
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
+  copy_paste: 0.0
+  
+  # Advanced
+  close_mosaic: 10  # disable mosaic last N epochs
+  amp: true  # automatic mixed precision
+  
+# Validation Configuration
+val:
+  batch_size: 16
+  imgsz: 640
+  conf: 0.001  # confidence threshold
+  iou: 0.6  # IoU threshold for NMS (note: YOLOv10 doesn't need NMS)
+  plots: true
+  save_json: true
+
+# Inference Configuration
+inference:
+  conf: 0.25  # confidence threshold
+  iou: 0.45  # IoU threshold
+  max_det: 300  # maximum detections per image
+  device: 0
+  agnostic_nms: false  # class-agnostic NMS
+
+# Export Configuration
+export:
+  format: onnx  # Options: onnx, torchscript, coreml, tflite
+  imgsz: 640
+  optimize: true
+  half: false  # FP16 quantization
+  dynamic: false  # dynamic axes
+  simplify: true  # ONNX simplification
+
+# Paths
+paths:
+  project: experiments/yolov10_dinov3
+  name: run
+  exist_ok: false
+  save_period: 10  # save checkpoint every N epochs
+
+# Performance Optimization
+performance:
+  cache: false  # cache images for faster training
+  rect: false  # rectangular training
+  single_cls: false  # train as single-class dataset
+  image_weights: false  # use weighted image selection
+  multi_scale: false  # multi-scale training
+
+# YOLOv10 Specific Settings
+yolov10:
+  dual_assignments: true  # Enable dual assignments (no NMS needed)
+  nms_free: true  # YOLOv10's NMS-free detection
+  
+# Callbacks
+callbacks:
+  tensorboard: true
+  clearml: false
+  wandb: false
+
+# Model Variants Specifications
+variants:
+  n:
+    ap: 38.5
+    params: 2.3M
+    flops: 6.7G
+    use_case: "Edge devices, fastest"
+  
+  s:
+    ap: 46.3
+    params: 7.2M
+    flops: 21.6G
+    use_case: "Balanced performance (RECOMMENDED)"
+  
+  m:
+    ap: 51.1
+    params: 15.4M
+    flops: 59.1G
+    use_case: "High accuracy"
+  
+  b:
+    ap: 52.5
+    params: 19.1M
+    flops: 92G
+    use_case: "Very high accuracy"
+  
+  l:
+    ap: 53.2
+    params: 24.4M
+    flops: 120.3G
+    use_case: "Superior performance"
+  
+  x:
+    ap: 54.4
+    params: 29.5M
+    flops: 160.4G
+    use_case: "Maximum accuracy"
+
+# Class-specific settings
+classes:
+  pothole:
+    id: 0
+    color: [0, 0, 255]  # Red (BGR)
+    priority: high
+  
+  speed_bump:
+    id: 1
+    color: [0, 255, 255]  # Yellow (BGR)
+    priority: high
+  
+  debris:
+    id: 2
+    color: [255, 0, 0]  # Blue (BGR)
+    priority: medium
+  
+  crack:
+    id: 3
+    color: [0, 165, 255]  # Orange (BGR)
+    priority: low
+
+# Notes
+notes: |
+  YOLOv10 + DINOv3 Configuration
+  - YOLOv10 offers 46% lower latency vs YOLOv8
+  - DINOv3 distillation improves accuracy by 5-15%
+  - No NMS overhead with dual assignments
+  - Recommended for road hazard detection applications

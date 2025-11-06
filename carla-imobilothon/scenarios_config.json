@@ -1,0 +1,454 @@
+{
+  "carla_connection": {
+    "host": "localhost",
+    "port": 2000,
+    "timeout": 10.0
+  },
+  
+  "output_settings": {
+    "base_directory": "carla_simulation_output",
+    "save_images": true,
+    "save_metadata": true,
+    "save_imu_data": true,
+    "save_gnss_data": true,
+    "image_format": "png",
+    "compress_images": false
+  },
+  
+  "scenarios": [
+    {
+      "name": "Clean Highway - Clear Weather",
+      "description": "Highway scenario with minimal traffic and clear visibility",
+      "enabled": true,
+      "map": "Town04",
+      "weather": {
+        "cloudiness": 10.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 70.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 5,
+        "num_pedestrians": 0
+      },
+      "obstacles": {
+        "spawn": false,
+        "types": []
+      },
+      "duration_seconds": 30,
+      "features_tested": [
+        "Adaptive Keyframe Sampling - Clean scenario",
+        "Multiple camera frames",
+        "IMU/GNSS initialization"
+      ]
+    },
+    
+    {
+      "name": "Highway with Heavy Traffic",
+      "description": "Dense traffic scenario for object detection testing",
+      "enabled": true,
+      "map": "Town04",
+      "weather": {
+        "cloudiness": 20.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 60.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 30,
+        "num_pedestrians": 10
+      },
+      "obstacles": {
+        "spawn": false,
+        "types": []
+      },
+      "duration_seconds": 45,
+      "features_tested": [
+        "Adaptive Keyframe Sampling - Traffic scenario",
+        "Multiple object detection",
+        "Feature extraction at scale"
+      ]
+    },
+    
+    {
+      "name": "Foggy Conditions - Image Enhancement",
+      "description": "Heavy fog to test image enhancement pipeline",
+      "enabled": true,
+      "map": "Town04",
+      "weather": {
+        "cloudiness": 80.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 45.0,
+        "fog_density": 50.0,
+        "fog_distance": 20.0,
+        "wetness": 30.0
+      },
+      "traffic": {
+        "num_vehicles": 15,
+        "num_pedestrians": 5
+      },
+      "obstacles": {
+        "spawn": false,
+        "types": []
+      },
+      "duration_seconds": 40,
+      "features_tested": [
+        "Image Quality Enhancement - Foggy/Hazy",
+        "Fisheye Distortion Correction",
+        "GAN-based dehazing",
+        "Multi-band blending"
+      ]
+    },
+    
+    {
+      "name": "Night Time - Low Light",
+      "description": "Night scenario with low light conditions",
+      "enabled": true,
+      "map": "Town05",
+      "weather": {
+        "cloudiness": 20.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": -90.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 20,
+        "num_pedestrians": 8
+      },
+      "obstacles": {
+        "spawn": false,
+        "types": []
+      },
+      "duration_seconds": 35,
+      "features_tested": [
+        "Image Quality Enhancement - Low Light",
+        "Inverse Perspective Mapping",
+        "Enhanced night detection"
+      ]
+    },
+    
+    {
+      "name": "Rainy Conditions",
+      "description": "Heavy rain for challenging visibility",
+      "enabled": true,
+      "map": "Town03",
+      "weather": {
+        "cloudiness": 90.0,
+        "precipitation": 80.0,
+        "precipitation_deposits": 50.0,
+        "sun_altitude_angle": 30.0,
+        "fog_density": 20.0,
+        "wetness": 80.0
+      },
+      "traffic": {
+        "num_vehicles": 15,
+        "num_pedestrians": 3
+      },
+      "obstacles": {
+        "spawn": false,
+        "types": []
+      },
+      "duration_seconds": 30,
+      "features_tested": [
+        "Image enhancement under rain",
+        "Wet road detection",
+        "Reduced visibility scenarios"
+      ]
+    },
+    
+    {
+      "name": "Obstacle Detection - Stalled Vehicles & Debris",
+      "description": "Scenario with various road obstacles",
+      "enabled": true,
+      "map": "Town04",
+      "weather": {
+        "cloudiness": 15.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 65.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 10,
+        "num_pedestrians": 5
+      },
+      "obstacles": {
+        "spawn": true,
+        "types": [
+          "stalled_vehicle",
+          "debris_barrel",
+          "debris_container",
+          "debris_box"
+        ]
+      },
+      "duration_seconds": 45,
+      "features_tested": [
+        "Stalled vehicle detection",
+        "Debris detection",
+        "Road mask (HEAD 4)",
+        "Alert system triggering"
+      ]
+    },
+    
+    {
+      "name": "Road Defects - Potholes & Speed Bumps",
+      "description": "Specialized scenario for road surface defects",
+      "enabled": true,
+      "map": "Town07",
+      "weather": {
+        "cloudiness": 10.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 70.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 8,
+        "num_pedestrians": 2
+      },
+      "obstacles": {
+        "spawn": true,
+        "types": [
+          "simulated_pothole",
+          "debris_small"
+        ]
+      },
+      "duration_seconds": 40,
+      "features_tested": [
+        "Pothole detection (HEAD 1)",
+        "Segmentation (HEAD 2)",
+        "Depth/Severity estimation (HEAD 3)",
+        "Unmarked speed bump detection",
+        "IMU-based bump detection"
+      ]
+    },
+    
+    {
+      "name": "Urban Traffic with Pedestrians",
+      "description": "Complex urban environment with mixed traffic",
+      "enabled": true,
+      "map": "Town03",
+      "weather": {
+        "cloudiness": 30.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 55.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 25,
+        "num_pedestrians": 20
+      },
+      "obstacles": {
+        "spawn": true,
+        "types": [
+          "debris_barrel"
+        ]
+      },
+      "duration_seconds": 50,
+      "features_tested": [
+        "Pedestrian detection",
+        "Vehicle detection (stalled vs moving)",
+        "Complex multi-object tracking (HEAD 5)",
+        "V2X alert broadcasting"
+      ]
+    },
+    
+    {
+      "name": "V2X Communication Test",
+      "description": "Scenario focused on V2X alert system",
+      "enabled": true,
+      "map": "Town05",
+      "weather": {
+        "cloudiness": 20.0,
+        "precipitation": 0.0,
+        "sun_altitude_angle": 60.0,
+        "fog_density": 0.0,
+        "wetness": 0.0
+      },
+      "traffic": {
+        "num_vehicles": 15,
+        "num_pedestrians": 5
+      },
+      "obstacles": {
+        "spawn": true,
+        "types": [
+          "stalled_vehicle",
+          "debris_barrel",
+          "debris_container"
+        ]
+      },
+      "duration_seconds": 60,
+      "features_tested": [
+        "Connectivity check (online/offline)",
+        "Cloud publish (MQTT/HTTPS)",
+        "Local cache storage",
+        "V2X alert broadcasting",
+        "Haversine distance geofencing",
+        "Voice-based GENAI verification",
+        "Bayesian trust update",
+        "In-cloud clustering deduplication"
+      ]
+    },
+    
+    {
+      "name": "Complete Pipeline Test",
+      "description": "End-to-end test of entire architecture",
+      "enabled": true,
+      "map": "Town04",
+      "weather": {
+        "cloudiness": 40.0,
+        "precipitation": 20.0,
+        "sun_altitude_angle": 50.0,
+        "fog_density": 15.0,
+        "wetness": 40.0
+      },
+      "traffic": {
+        "num_vehicles": 20,
+        "num_pedestrians": 10
+      },
+      "obstacles": {
+        "spawn": true,
+        "types": [
+          "stalled_vehicle",
+          "debris_barrel",
+          "debris_container",
+          "simulated_pothole"
+        ]
+      },
+      "duration_seconds": 90,
+      "features_tested": [
+        "Complete data pipeline",
+        "All sensor fusion",
+        "All detection heads",
+        "Full V2X communication",
+        "Privacy blur (MediaPipe)",
+        "Feedback learning (PPO)",
+        "End-to-end latency test"
+      ]
+    }
+  ],
+  
+  "camera_settings": {
+    "front_rgb": {
+      "enabled": true,
+      "resolution": [1920, 1080],
+      "fov": 90,
+      "position": [1.5, 0.0, 2.4],
+      "rotation": [0, 0, 0]
+    },
+    "front_fisheye": {
+      "enabled": true,
+      "resolution": [1920, 1080],
+      "fov": 170,
+      "position": [1.5, 0.0, 2.4],
+      "rotation": [0, 0, 0],
+      "lens_circle_multiplier": 3.0,
+      "lens_circle_falloff": 3.0
+    },
+    "left_camera": {
+      "enabled": true,
+      "resolution": [1280, 720],
+      "fov": 90,
+      "position": [1.0, -0.5, 2.0],
+      "rotation": [0, -45, 0]
+    },
+    "right_camera": {
+      "enabled": true,
+      "resolution": [1280, 720],
+      "fov": 90,
+      "position": [1.0, 0.5, 2.0],
+      "rotation": [0, 45, 0]
+    },
+    "rear_camera": {
+      "enabled": true,
+      "resolution": [1280, 720],
+      "fov": 90,
+      "position": [-2.0, 0.0, 2.0],
+      "rotation": [0, 180, 0]
+    }
+  },
+  
+  "sensor_settings": {
+    "imu": {
+      "enabled": true,
+      "sampling_rate": 50
+    },
+    "gnss": {
+      "enabled": true,
+      "sampling_rate": 10
+    },
+    "semantic_segmentation": {
+      "enabled": true,
+      "resolution": [1920, 1080]
+    },
+    "depth_camera": {
+      "enabled": true,
+      "resolution": [1920, 1080]
+    }
+  },
+  
+  "adaptive_keyframe_sampling": {
+    "enabled": true,
+    "static_scene_rate": 10,
+    "dynamic_scene_rate": 2,
+    "motion_threshold": 5.0,
+    "scene_change_threshold": 0.3
+  },
+  
+  "performance_settings": {
+    "synchronous_mode": true,
+    "fixed_delta_seconds": 0.05,
+    "max_substep_delta_time": 0.01,
+    "max_substeps": 10,
+    "quality_level": "Epic"
+  },
+  
+  "v2x_settings": {
+    "enabled": true,
+    "broadcast_radius_meters": 500,
+    "connectivity_check_interval": 5,
+    "offline_probability": 0.1,
+    "duplicate_distance_threshold": 10.0,
+    "duplicate_time_threshold": 300,
+    "voice_verification_trust_threshold": 0.7
+  },
+  
+  "detection_settings": {
+    "detection_range_meters": 50,
+    "confidence_threshold": 0.5,
+    "nms_threshold": 0.4,
+    "track_persistence_frames": 30
+  },
+  
+  "architecture_mapping": {
+    "offline_map_preparation": "Pre-computed routes from spawn points",
+    "sensor_initialization": "IMU + GNSS + 5 cameras",
+    "image_capture_rate_controller": "Adaptive Keyframe Sampling (AKS)",
+    "composite_image": "Multiple frames + Fisheye correction + IPM + Multi-band blending",
+    "image_quality_enhancement": "Checks Foggy/Hazy/Low Light → GAN dehaze",
+    "dehaze_image": "GAN-based enhancement",
+    "privacy_blur": "MediaPipe face detection + OpenAIR-Lite pixelation + Gaussian blur",
+    "feature_extractor": {
+      "head_1_detection": "Detects: Pothole, Bump, Debris, Stalled Vehicles (DBMv2/YOLOv8)",
+      "head_2_segmentation": "Calculate pothole size with UNetLite/BiSeNet",
+      "head_3_depth_severity": "Estimate depth/width with MiDaS-small",
+      "head_4_road_mask": "Is object ON road or pavement? Fast-SCNN",
+      "head_5_tracking": "Track bounding box across frames (SORT/StrongSORT)"
+    },
+    "fusion_engine": "Combine signals: detection + tracking + segmentation + depth + IMU",
+    "feedback_learning": "Local training + Proximal Policy Optimization (PPO) + Fewer False Positives",
+    "alert_system": {
+      "connectivity_check": "Online/Offline detection",
+      "cloud_publish": "Push to cloud (MQTT/HTTPS)",
+      "local_cache": "Store till connectivity regained",
+      "v2x_alert": "Alert nearby drivers via V2X (DSRC)",
+      "haversine_distance": "Geofencing with distance calc",
+      "voice_genai_verification": "Send to reputed drivers, blurred thumbnail, voice confirm, STT parse, Bayesian trust update",
+      "clustering": "Merge similar detections, spatial-group by haversine distance, frame-based clustering"
+    }
+  }
+}

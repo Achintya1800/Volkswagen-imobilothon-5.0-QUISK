@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+paho-mqtt
+requests
