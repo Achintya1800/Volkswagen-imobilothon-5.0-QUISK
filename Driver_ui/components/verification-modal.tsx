@@ -13,8 +13,8 @@ export function VerificationModal({ onClose, onSubmit }: VerificationModalProps)
   const [comments, setComments] = useState("")
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 max-w-md w-full mx-4">
+    <div className="fixed inset-0 bg-black/50 z-50 flex justify-end">
+  <div className="bg-slate-900 border-l border-slate-700 h-full w-1/5 p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-white">Verify Hazard</h2>
           <button onClick={onClose} className="text-slate-400 hover:text-white transition">
