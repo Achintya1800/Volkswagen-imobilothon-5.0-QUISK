@@ -1,35 +1,46 @@
+"""
+Privacy Blur System (Hybrid: ONNX + YOLOv8)
+-------------------------------------------
+Detects and blurs faces and license plates in images/videos.
+Author: Nidhi Patel + ChatGPT | 2025
+"""
+
 import os
 import cv2
 import numpy as np
 import onnxruntime as ort
+from ultralytics import YOLO
 
 # ==========================================
 # 1️⃣ Model Paths
 # ==========================================
-FACE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Mobile\backend\privacy\models\face_detection_model.onnx"
-PLATE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Mobile\backend\privacy\models\license_plate_detector.onnx"
+FACE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Volkswagen-imobilothon-5.0-QUISK\privacy\models\face_detection_model.onnx"
+PLATE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Volkswagen-imobilothon-5.0-QUISK\privacy\models\license_plate_detector.pt"
 
 INPUT_DIR = "input"
 OUTPUT_DIR = "output_blur"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # ==========================================
-# 2️⃣ Load ONNX models
+# 2️⃣ Load Models
 # ==========================================
-face_session = ort.InferenceSession(FACE_MODEL_PATH, providers=["CPUExecutionProvider"])
-plate_session = ort.InferenceSession(PLATE_MODEL_PATH, providers=["CPUExecutionProvider"])
 
+# --- FACE: ONNX ---
+options = ort.SessionOptions()
+options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
+face_session = ort.InferenceSession(FACE_MODEL_PATH, sess_options=options, providers=["CPUExecutionProvider"])
 face_input = face_session.get_inputs()[0].name
 face_output = face_session.get_outputs()[0].name
-plate_input = plate_session.get_inputs()[0].name
-plate_output = plate_session.get_outputs()[0].name
+
+# --- LICENSE PLATE: YOLOv8 (.pt) ---
+plate_model = YOLO(PLATE_MODEL_PATH)
 
 print("✅ Models loaded successfully!")
-print(f"   Face model: {FACE_MODEL_PATH}")
+print(f"   Face model : {FACE_MODEL_PATH}")
 print(f"   Plate model: {PLATE_MODEL_PATH}")
 
 # ==========================================
-# 3️⃣ Preprocessing (YOLOv8)
+# 3️⃣ Preprocessing (for ONNX Face Model)
 # ==========================================
 def preprocess(frame, size=640):
     img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -39,7 +50,7 @@ def preprocess(frame, size=640):
     return img
 
 # ==========================================
-# 4️⃣ Postprocess (supports YOLOv8 5-value output)
+# 4️⃣ Postprocess (for ONNX)
 # ==========================================
 def postprocess(outputs, orig_w, orig_h, conf_thres=0.35):
     preds = np.squeeze(outputs)
@@ -71,32 +82,34 @@ def blur_region(frame, x1, y1, x2, y2, ksize=(55, 55)):
     return frame
 
 # ==========================================
-# 6️⃣ Run both models and blur
+# 6️⃣ Core Logic – Run Both Models & Blur
 # ==========================================
 def blur_privacy_objects(frame):
     orig_h, orig_w = frame.shape[:2]
 
-    # --- FACE DETECTION ---
+    # --- FACE DETECTION (ONNX) ---
     face_inp = preprocess(frame)
     face_out = face_session.run([face_output], {face_input: face_inp})
     face_boxes = postprocess(face_out[0], orig_w, orig_h, conf_thres=0.3)
 
-    # --- LICENSE PLATE DETECTION ---
-    plate_inp = preprocess(frame)
-    plate_out = plate_session.run([plate_output], {plate_input: plate_inp})
-    plate_boxes = postprocess(plate_out[0], orig_w, orig_h, conf_thres=0.35)
+    # --- LICENSE PLATE DETECTION (YOLOv8) ---
+    results = plate_model(frame, verbose=False)
+    plate_boxes = []
+    for box in results[0].boxes.xyxy.cpu().numpy():
+        x1, y1, x2, y2 = map(int, box[:4])
+        plate_boxes.append([x1, y1, x2, y2])
 
-    # --- Combine detections ---
+    # --- Combine Detections ---
     all_boxes = [*face_boxes, *plate_boxes]
 
-    # --- Apply blur ---
+    # --- Apply Blur ---
     for (x1, y1, x2, y2) in all_boxes:
         frame = blur_region(frame, x1, y1, x2, y2)
 
     return frame
 
 # ==========================================
-# 7️⃣ Process Images
+# 7️⃣ Process Image Files
 # ==========================================
 def process_image(img_path, save_path):
     img = cv2.imread(img_path)
@@ -108,7 +121,7 @@ def process_image(img_path, save_path):
     print(f"🖼️ Saved blurred image → {save_path}")
 
 # ==========================================
-# 8️⃣ Process Videos
+# 8️⃣ Process Video Files
 # ==========================================
 def process_video(video_path, save_path):
     cap = cv2.VideoCapture(video_path)

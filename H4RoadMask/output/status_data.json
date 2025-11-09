@@ -1,0 +1,344 @@
+{
+    "mask1 (1).png": [
+        {
+            "type": "Pothole",
+            "confidence": 0.775,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "Pothole",
+            "confidence": 0.529,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.866,
+            "on_road_ratio": 0.003,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.797,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.643,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.595,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.414,
+            "on_road_ratio": 0.002,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.413,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.404,
+            "on_road_ratio": 0.041,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.275,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        }
+    ],
+    "mask1 (2).png": [
+        {
+            "type": "Pothole",
+            "confidence": 0.431,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.557,
+            "on_road_ratio": 0.261,
+            "status": "ON ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.39,
+            "on_road_ratio": 0.459,
+            "status": "ON ROAD"
+        }
+    ],
+    "mask1 (3).png": [
+        {
+            "type": "Pothole",
+            "confidence": 0.686,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.772,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.678,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "truck",
+            "confidence": 0.524,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "truck",
+            "confidence": 0.523,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        }
+    ],
+    "pothole.png": [
+        {
+            "type": "Pothole",
+            "confidence": 0.792,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "Pothole",
+            "confidence": 0.764,
+            "on_road_ratio": 1.0,
+            "status": "INSIDE ROAD"
+        },
+        {
+            "type": "motorcycle",
+            "confidence": 0.789,
+            "on_road_ratio": 0.025,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "motorcycle",
+            "confidence": 0.767,
+            "on_road_ratio": 0.195,
+            "status": "ON ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.71,
+            "on_road_ratio": 0.619,
+            "status": "ON ROAD"
+        },
+        {
+            "type": "motorcycle",
+            "confidence": 0.647,
+            "on_road_ratio": 0.209,
+            "status": "ON ROAD"
+        },
+        {
+            "type": "truck",
+            "confidence": 0.477,
+            "on_road_ratio": 0.027,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.379,
+            "on_road_ratio": 0.027,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "truck",
+            "confidence": 0.258,
+            "on_road_ratio": 0.027,
+            "status": "OFF ROAD"
+        }
+    ],
+    "Screenshot 2025-11-06 170915.png": [
+        {
+            "type": "car",
+            "confidence": 0.937,
+            "on_road_ratio": 0.116,
+            "status": "OFF ROAD"
+        }
+    ],
+    "Screenshot 2025-11-06 171015.png": [
+        {
+            "type": "car",
+            "confidence": 0.898,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.888,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.858,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.856,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.855,
+            "on_road_ratio": 0.001,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.831,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.823,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.794,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.711,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "bus",
+            "confidence": 0.699,
+            "on_road_ratio": 0.041,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "bus",
+            "confidence": 0.677,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.666,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.661,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.634,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.618,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "bus",
+            "confidence": 0.575,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.558,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "bus",
+            "confidence": 0.52,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.493,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.407,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.403,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.382,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.374,
+            "on_road_ratio": 0.706,
+            "status": "ON ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.362,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.301,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.27,
+            "on_road_ratio": 0.115,
+            "status": "OFF ROAD"
+        },
+        {
+            "type": "car",
+            "confidence": 0.25,
+            "on_road_ratio": 0.0,
+            "status": "OFF ROAD"
+        }
+    ]
+}
