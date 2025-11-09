@@ -54,11 +54,14 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 | 🚦 City / Traffic | 0.18 km/h | 20.08% | Slow → Frames skipped |
 | 🛣️ Highway | 13.07 km/h | 23.82% | Fast → More frames saved |
 
-🎥 **Demo:**  
+🎥 **Demo Video:**
+> 📌 *If the video doesn’t appear below, [click here to watch on Google Drive](https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/view?usp=drive_link).*
 
-[![Watch the Demo](./images/demo_thumbnail.png)](https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/view?usp=drive_link)
+<iframe src="https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/preview"
+        width="720" height="480" allow="autoplay">
+</iframe>
 
-
+[![Watch the Demo](./images/stalled.png)](https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/view?usp=drive_link)
 ---
 
 ## 🧩 4️⃣ Composite Image Generation
@@ -256,7 +259,7 @@ Blur faces and license plates **on-device** before upload using **YOLOv8 + Gauss
 ## 🗣️ 9️⃣ Voice-Based Verification
 
 🎯 **Goal**  
-Validate detected hazards through **trusted driver voice feedback** using a **GenAI verification interface**.
+Validate detected hazards through **trusted driver voice feedback** using a **verification popover interface**.
 
 ⚙️ **Workflow**
 1. Send hazard clip to trusted driver.  
