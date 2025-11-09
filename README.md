@@ -55,8 +55,11 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 | 🛣️ Highway | 13.07 km/h | 23.82% | Fast → More frames saved |
 
 🎥 **AKS Module Demo**
+ 
+<video width="640" controls>
+  <source src="./videos/AKS.mp4" type="video/mp4">
+</video>
 
-[![Watch the AKS Demo](./images/aks_module.png)](./videos/AKS.mp4)
 ---
 
 ## 🧩 4️⃣ Composite Image Generation
