@@ -54,10 +54,7 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 | 🚦 City / Traffic | 0.18 km/h | 20.08% | Slow → Frames skipped |
 | 🛣️ Highway | 13.07 km/h | 23.82% | Fast → More frames saved |
 
-🎥 Demo:  
-<video width="640" controls>
-  <source src="./videos/AKS.mp4" type="video/mp4">
-</video>
+[![Watch the AKS Demo](./images/dehaze.png)](./videos/AKS.mp4)
 ---
 
 ## 🧩 4️⃣ Composite Image Generation
