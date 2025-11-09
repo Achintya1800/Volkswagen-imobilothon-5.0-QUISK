@@ -6,7 +6,7 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 
 ---
 
-## 🧠 1️⃣ Architecture Overview
+## 🧠 1️. Architecture Overview
 ![System Architecture](./images/architecture_diagram.png)
 
 🎥 **Volkswagen Project Full Demo**
@@ -15,7 +15,7 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 
 ---
 
-## 🗺️ 2️⃣ Offline Map Preparation
+## 🗺️ 2. Offline Map Preparation
 
 🎯 **Objective:**  
 Enable safe and optimized navigation by combining **real-time** and **offline hazard-aware routing**.
@@ -32,7 +32,7 @@ Enable safe and optimized navigation by combining **real-time** and **offline ha
 
 ---
 
-## 🚗 3️⃣ Image Capture Rate Controller (AKS)
+## 🚗 3️. Image Capture Rate Controller (AKS)
 
 🎯 **Objective:**  
 Optimize video processing by capturing only key frames through **Adaptive Keyframe Sampling (AKS)**.
@@ -58,7 +58,7 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 
 ---
 
-## 🧩 4️⃣ Composite Image Generation
+## 🧩 4️. Composite Image Generation
 
 Combines multiple camera feeds into a **single unified frame** using OpenCV.
 
@@ -73,7 +73,7 @@ Combines multiple camera feeds into a **single unified frame** using OpenCV.
 
 ---
 
-## 🧩 5️⃣ Image Quality Enhancement (DehazeNet)
+## 🧩 5️. Image Quality Enhancement (DehazeNet)
 
 Enhances **foggy, hazy, or low-light** frames using a **lightweight GAN-based AOD-Net** to restore clarity and boost detection accuracy.
 
@@ -90,7 +90,7 @@ Enhances **foggy, hazy, or low-light** frames using a **lightweight GAN-based AO
 
 ---
 
-## 🧩 6️⃣ Feature Extractor
+## 🧩 6️. Feature Extractor
 The **Feature Extractor** is the vision intelligence core of the system.  
 It performs **multi-head visual analysis** to detect, segment, measure, and track road hazards with ego-motion compensation.
 
@@ -206,7 +206,7 @@ Helps filter false hazards and improves safety analytics.
 
 ---
 
-## ✅ 7️⃣ Fusion Engine
+## ✅ 7️. Fusion Engine
 
 🎯 **Goal**  
 Fuse outputs from all perception heads into one reliable **confidence score (C_final)** for final hazard decision.
@@ -227,9 +227,11 @@ Fuse outputs from all perception heads into one reliable **confidence score (C_f
 | Road | On-road penalty | `C_road = {1.0 if on_road, α if off_road}` |
 | Tracking | Persistence | `C_track = min(track_age / T_stable, 1) × (1 - miss_rate)` |
 
+**Example Output**  
+![Feedback](./images/Feedback.png)
 ---
 
-## 🔒 8️⃣ Privacy Blur
+## 🔒 8️. Privacy Blur
 
 🎯 **Goal**  
 Blur faces and license plates **on-device** before upload using **YOLOv8 + Gaussian Blur**.
@@ -248,7 +250,7 @@ Blur faces and license plates **on-device** before upload using **YOLOv8 + Gauss
 
 ---
 
-## 🗣️ 9️⃣ Voice-Based Verification
+## 🗣️ 9️. Voice-Based Verification
 
 🎯 **Goal**  
 Validate detected hazards through **trusted driver voice feedback** using a **verification popover interface**.
@@ -270,7 +272,7 @@ Validate detected hazards through **trusted driver voice feedback** using a **ve
 
 ---
 
-## 🧠 🔟 Feedback Learning (Federated PPO)
+## 🧠 10. Feedback Learning (Federated PPO)
 
 🎯 **Goal / Motto**  
 “Every vehicle learns — the fleet gets smarter.”  
@@ -284,7 +286,7 @@ Uses **federated PPO learning** to improve detection without sharing raw data.
 
 ---
 
-## ⚡ 1️⃣1️⃣ Alert System
+## ⚡ 1️1️. Alert System
 
 🎯 **Goal**
 Ensure reliable, **non-redundant hazard uploads** from drivers to the server — even offline.
@@ -292,9 +294,8 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 ⚙️ **Workflow**
 1. **Connectivity Check**
    - ✅ Internet → Send via **MQTT**  
-   - ❌ Offline → Store in local cache
+   - ❌ Offline → Store in local cache till connectivity regained
 2. **Server Receives Data**
-   - MQTT topic `/hazard/detections`
 3. **Clustering (Haversine Formula)**
    - Merge nearby hazards to prevent duplicates.
 
@@ -305,17 +306,17 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 
 ---
 
-## 🧩 1️⃣2️⃣ Tech Stack
+## 🧩 1️2️. Tech Stack
 
 ### 🤖 **AI / ML Frameworks**
-- **YOLOv10 / YOLOv11** → Object detection for potholes, debris, stalled vehicles  
+- **YOLOv10s** → Object detection for potholes, debris, stalled vehicles  
 - **YOLOv8-Seg** → Pixel-level segmentation for pothole shape & area estimation  
 - **MiDaS-small v2.1** → Depth & severity estimation  
 - **Fast-SCNN** → Lightweight road mask segmentation (drivable area classification)  
 - **DINOv3 Distillation** → Feature-rich representation transfer to YOLOv10  
 - **PPO (Proximal Policy Optimization)** → Federated feedback learning algorithm  
-- **AOD-Net / DehazeNet** → Low-light & haze restoration for image clarity  
-- **SORT / StrongSORT** → Object tracking with Kalman Filter + IoU Matching  
+- **AOD-Net & DehazeNet** → Low-light & haze restoration for image clarity  
+- **SORT** → Object tracking with Kalman Filter + IoU Matching  
 
 
 
@@ -323,8 +324,8 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 ---
 
 ### ☁️ **Cloud & Communication**
-- **MQTT / HTTPS** → Data transfer between vehicle → cloud → app  
-- **V2X Communication (DSRC / MQTT Topics)** → Peer-to-peer vehicle alerts  
+- **MQTT** → Data transfer between vehicle → cloud → app  
+- **V2X Communication (DSRC, Geofencing)** → Peer-to-peer vehicle alerts  
 - **Haversine Clustering** → In-server deduplication of hazard reports  
 
 ---
@@ -337,7 +338,7 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 ---
 
 ### 🧭 **Mapping & Navigation**
-- **OSM (OpenStreetMap) APIs** → Map rendering & hazard overlay  
+- **OSRM (OpenStreetMap) APIs** → Map rendering & hazard overlay  
 - **Leaflet.js / Mapbox** → Real-time road visualization  
 - **Offline Tile Caching** → Hazard-aware route navigation when offline  
 
@@ -350,9 +351,6 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 
 🧠 **Summary:**  
 The pipeline spans **edge AI, federated learning, and cloud analytics**, ensuring reliability, privacy, and real-time hazard awareness from detection → verification → alert dissemination.
-
-
-
 
 
 ---
