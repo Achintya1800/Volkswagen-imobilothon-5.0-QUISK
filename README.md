@@ -227,8 +227,7 @@ Fuse outputs from all perception heads into one reliable **confidence score (C_f
 | Road | On-road penalty | `C_road = {1.0 if on_road, α if off_road}` |
 | Tracking | Persistence | `C_track = min(track_age / T_stable, 1) × (1 - miss_rate)` |
 
-**Example Output**  
-![Feedback](./images/Feedback.png)
+
 ---
 
 ## 🔒 8️. Privacy Blur
@@ -283,7 +282,8 @@ Uses **federated PPO learning** to improve detection without sharing raw data.
 2. Send model updates (not data) to server.  
 3. Server aggregates via PPO.  
 4. Global model redistributed → continuous improvement.
-
+**Example Output**  
+![Feedback](./images/Feedback.png)
 ---
 
 ## ⚡ 1️1️. Alert System
