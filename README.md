@@ -9,10 +9,9 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 ## 🧠 1️⃣ Architecture Overview
 ![System Architecture](./images/architecture_diagram.png)
 
-🎥 Demo Video:  
-<video width="640" controls>
-  <source src="./videos/Volkswagen_Quisk.mp4" type="video/mp4">
-</video>
+🎥 **Volkswagen Project Full Demo**
+
+> 📌 *Click Here, [click here to open it on Google Drive](https://drive.google.com/drive/folders/1UigdUl6woFvJz7YYPx1ImZYIuj1QOAoK?usp=drive_link).*
 
 ---
 
@@ -54,11 +53,8 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 | 🚦 City / Traffic | 0.18 km/h | 20.08% | Slow → Frames skipped |
 | 🛣️ Highway | 13.07 km/h | 23.82% | Fast → More frames saved |
 
-🎥 **AKS Module Demo**
- 
-<video width="640" controls>
-  <source src="./videos/AKS.mp4" type="video/mp4">
-</video>
+
+![AKS](./images/AKS.png)
 
 ---
 
@@ -204,8 +200,6 @@ Helps filter false hazards and improves safety analytics.
 🧮 **Ego-Motion Compensation Formula:**
 ![Head 5 – Formula](./images/stallformula.png)
 
-🎥 **Demo:**  
-🎥 **Demo Video**
 
 [![Watch the Demo](./images/stalled.png)](https://drive.google.com/file/d/1Lp4UQRNKpWIADlHd_ZKrdra-IUGOxaDZ/view?usp=drive_link)
 >
@@ -272,10 +266,7 @@ Validate detected hazards through **trusted driver voice feedback** using a **ve
 🧮 **Trust Update**
 `Trust_new = Trust_prev + η × (Verification_result - Expected)`
 
-🎥 **Demo:**  
-<iframe src="https://drive.google.com/file/d/1vjpDZbSEpLwrKn-KVpwRr5L3FaaPR5wL/preview" 
-        width="720" height="480" allow="autoplay">
-</iframe>
+
 
 ---
 
@@ -361,9 +352,7 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 The pipeline spans **edge AI, federated learning, and cloud analytics**, ensuring reliability, privacy, and real-time hazard awareness from detection → verification → alert dissemination.
 
 
----
 
-## 📂 1️⃣3️⃣ Project Structure
 
 
 ---
