@@ -55,9 +55,9 @@ Reduces compute load and latency by **up to 60%**, while preserving essential sc
 | 🛣️ Highway | 13.07 km/h | 23.82% | Fast → More frames saved |
 
 🎥 **Demo:**  
-<iframe src="https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/preview" 
-        width="720" height="480" allow="autoplay">
-</iframe>
+
+[![Watch the Demo](./images/demo_thumbnail.png)](https://drive.google.com/file/d/1XoV6hV5G-eiYsWmdHrJb4z8seiDvawzX/view?usp=drive_link)
+
 
 ---
 
@@ -204,9 +204,10 @@ Helps filter false hazards and improves safety analytics.
 ![Head 5 – Formula](./images/stallformula.png)
 
 🎥 **Demo:**  
-<iframe src="https://drive.google.com/file/d/1Lp4UQRNKpWlADlHd_ZKrdra-lUGOxaDZ/preview" 
-        width="720" height="480" allow="autoplay">
-</iframe>
+🎥 **Demo Video**
+
+[![Watch the Demo](./images/stalled.png)](https://drive.google.com/file/d/1Lp4UQRNKpWIADlHd_ZKrdra-IUGOxaDZ/view?usp=drive_link)
+>
 
 ---
 
