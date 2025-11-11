@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/d9fdec45-63d6-46ea-bd61-4e556d2392b5
 <video src="https://github.com/Achintya1800/Volkswagen-imobilothon-5.0-QUISK/raw/main/Videos/Prototype%20Demo.mp4" controls="controls" style="max-width: 100%;">
 </video>
 
-> 📌 *[Also available on Google Drive](https://drive.google.com/drive/folders/1UigdUl6woFvJz7YYPx1ImZYIuj1QOAoK?usp=drive_link).*
+> � *You can also watch the full demo on [YouTube](https://youtu.be/GqcZbpZZ1c0).*
 
 ---
 
