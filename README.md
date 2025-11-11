@@ -11,13 +11,8 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 
 🎥 **Volkswagen Project Full Demo**
 
+https://github.com/user-attachments/assets/64cc82e8-a8d0-43d1-82a7-9cadba35879e
 
-
-https://github.com/user-attachments/assets/d9fdec45-63d6-46ea-bd61-4e556d2392b5
-
-
-<video src="https://github.com/Achintya1800/Volkswagen-imobilothon-5.0-QUISK/raw/main/Videos/Prototype%20Demo.mp4" controls="controls" style="max-width: 100%;">
-</video>
 
 > � *You can also watch the full demo on [YouTube](https://youtu.be/GqcZbpZZ1c0).*
 
