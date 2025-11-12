@@ -14,12 +14,20 @@ from ultralytics import YOLO
 # ==========================================
 # 1️⃣ Model Paths
 # ==========================================
-FACE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Volkswagen-imobilothon-5.0-QUISK\privacy\models\face_detection_model.onnx"
-PLATE_MODEL_PATH = r"C:\Users\Nidhi Patel\OneDrive\Desktop\Volkswagen-imobilothon-5.0-QUISK\privacy\models\license_plate_detector.pt"
+# ==========================================
+# 1️⃣ Model Paths (repo-relative, robust)
+# ==========================================
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
 
-INPUT_DIR = "input"
-OUTPUT_DIR = "output_blur"
+# model files expected inside privacy/models/
+FACE_MODEL_PATH = str(HERE / "models" / "face_detection_model.onnx")
+PLATE_MODEL_PATH = str(HERE / "models" / "license_plate_detector.pt")
+
+INPUT_DIR = str(HERE / "input")
+OUTPUT_DIR = str(HERE / "output_blur")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 # ==========================================
 # 2️⃣ Load Models
