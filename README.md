@@ -314,7 +314,25 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 
 ---
 
-## 🧩 1️2️. Tech Stack
+## 🚗 Kiwi App – V2X Hazard Alert Simulation (Wi-Fi Direct Prototype)
+
+📘 **Overview**
+This project simulates **V2X-based hazard alert communication** between nearby vehicles using **Wi-Fi Direct (P2P)** instead of DSRC, due to unavailable hardware.  
+It’s part of the **hazard detection and alerting pipeline**, where detected road anomalies (like potholes, debris, or bumps) are broadcast to nearby drivers.  
+
+---
+
+🧩 **Key Features**
+3️⃣ **Alert Transmission (Wi-Fi Direct)**
+- **Cross-Platform Kivy App:** Built with Kivy + Python for Android compatibility.  
+- **Fallback GPS Coordinates:** Uses hardcoded coordinates (mock location) as GPS data was unavailable during testing and is considered to be available in-car.  
+- Instead of DSRC (V2X), hazard alerts are **broadcast to nearby devices via Wi-Fi Direct (P2P)**.  
+This allows testing **V2X-like communication** without requiring specialized hardware.
+
+![V2x](./images/v2x.png)
+
+
+## 🧩 1️3. Tech Stack
 
 ### 🤖 **AI / ML Frameworks**
 - **YOLOv10s** → Object detection for potholes, debris, stalled vehicles  
