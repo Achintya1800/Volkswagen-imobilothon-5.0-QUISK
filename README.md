@@ -255,6 +255,8 @@ Blur faces and license plates **on-device** before upload using **YOLOv8 + Gauss
 |------------|------------------|
 | ![Face Blur](./images/blurred_privacy1.png) | ![Plate Blur](./images/blurred_privacy2.png) |
 
+
+
 ---
 
 ## 🗣️ 9️. Voice-Based Verification
@@ -332,6 +334,8 @@ This allows testing **V2X-like communication** without requiring specialized har
 | SENDER | RECEIVER |
 |------------|------------------|
 | ![sender](./images/v2x.png) | ![Plate Blur](./images/v2x2.png) |
+
+![v2ximage](./images/v2ximage.jpg)
 
 
 
