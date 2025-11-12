@@ -6,6 +6,11 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 
 ---
 
+## 🌐 Live Demo
+**Streamlit App:** [https://achintya1800-volkswagen-imobilothon-5-0-streamlit-appapp-f5qiti.streamlit.app/](https://achintya1800-volkswagen-imobilothon-5-0-streamlit-appapp-f5qiti.streamlit.app/)
+
+---
+
 ## 🧠 1️. Architecture Overview
 ![System Architecture](./images/architecture_diagram.png)
 
