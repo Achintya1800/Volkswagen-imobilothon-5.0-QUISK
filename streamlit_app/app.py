@@ -8,12 +8,22 @@ import json
 import time
 import io
 import zipfile
-import cv2
 import numpy as np
 import pandas as pd
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import streamlit as st
+
+# OpenCV is optional - only used for placeholder video generation
+# Make it optional to avoid libGL.so.1 errors on headless servers
+try:
+    import cv2
+    _HAS_CV2 = True
+except (ImportError, OSError, AttributeError):
+    # OSError catches missing system libraries like libGL.so.1
+    # AttributeError catches partial imports that fail
+    _HAS_CV2 = False
+    cv2 = None
 
 # ------- Demo defaults (no sidebar slider anymore) -------
 DEMO_DELAY_SECONDS = 0.8  # previously controlled by the sidebar slider
@@ -128,12 +138,8 @@ try:
 except Exception:
     _HAS_MPL = False
 
-# OpenCV is already imported, but check if it's available
-try:
-    import cv2
-    _HAS_CV2 = True
-except Exception:
-    _HAS_CV2 = False
+# OpenCV availability already checked at top-level import
+# _HAS_CV2 is set above
 
 CRC_BASE = ASSETS_BASE / "util" / "crc"
 SCENES = {
@@ -468,6 +474,10 @@ def create_placeholder_image(width, height, role_text, poi_text, is_depth=False)
 
 def create_placeholder_video(output_path, width, height, fps, duration, is_annotated=False):
     """Create a placeholder video with moving rectangles."""
+    if not _HAS_CV2:
+        # Skip video generation if OpenCV is not available (e.g., on headless servers)
+        return
+    
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(str(output_path), fourcc, fps, (width, height))
     

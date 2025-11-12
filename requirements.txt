@@ -9,6 +9,8 @@ matplotlib>=3.8
 # If your code imports pandas anywhere (keep; harmless if unused)
 pandas>=2.1
 
-# OpenCV for video placeholder generation
+# OpenCV for video placeholder generation (optional - gracefully handled if unavailable)
+# Note: May fail on headless servers due to missing system libraries (libGL.so.1)
+# The app will work fine without it - placeholder videos just won't be auto-generated
 opencv-python>=4.8
 
