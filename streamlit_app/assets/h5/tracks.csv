@@ -1,0 +1,6 @@
+track_id,frames_stalled,avg_motion,status
+12,48,0.8,STALLED
+21,15,3.1,MOVING
+34,60,0.5,STALLED
+47,8,5.2,MOVING
+53,30,1.9,STALLED

@@ -1,0 +1,14 @@
+# Core
+streamlit==1.38.0
+pillow>=9.5
+numpy>=1.24
+
+# Optional but used by some fallbacks / charts already in repo
+matplotlib>=3.8
+
+# If your code imports pandas anywhere (keep; harmless if unused)
+pandas>=2.1
+
+# OpenCV for video placeholder generation
+opencv-python>=4.8
+
