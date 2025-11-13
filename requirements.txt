@@ -1,0 +1,16 @@
+# Core
+streamlit==1.38.0
+pillow>=9.5
+numpy>=1.24
+
+# Optional but used by some fallbacks / charts already in repo
+matplotlib>=3.8
+
+# If your code imports pandas anywhere (keep; harmless if unused)
+pandas>=2.1
+
+# OpenCV for video placeholder generation (optional - gracefully handled if unavailable)
+# Note: May fail on headless servers due to missing system libraries (libGL.so.1)
+# The app will work fine without it - placeholder videos just won't be auto-generated
+opencv-python>=4.8
+
