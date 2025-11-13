@@ -11,8 +11,6 @@ Integrates **computer vision**, **sensor fusion**, and **edge–cloud intelligen
 
 ---
 
----
-
 ## 📁 Dataset and Model Files Drive Link
 **Link:** [https://drive.google.com/drive/folders/1PWQ2dsXSa79uncikRV6ATzlDeLciri_Q](https://drive.google.com/drive/folders/1PWQ2dsXSa79uncikRV6ATzlDeLciri_Q)
 
