@@ -323,7 +323,7 @@ Ensure reliable, **non-redundant hazard uploads** from drivers to the server —
 
 ---
 
-## 🚗 Kiwi App – V2X Hazard Alert Simulation (Wi-Fi Direct Prototype)
+## 🚗 Kivy App – V2X Hazard Alert Simulation (Wi-Fi Direct Prototype)
 
 📘 **Overview**
 This project simulates **V2X-based hazard alert communication** between nearby vehicles using **Wi-Fi Direct (P2P)** instead of DSRC, due to unavailable hardware.  
@@ -333,9 +333,9 @@ It’s part of the **hazard detection and alerting pipeline**, where detected ro
 
 🧩 **Key Features**
 - **Cross-Platform Kivy App:** Built with Kivy + Python for Android compatibility.  
-- **Fallback GPS Coordinates:** Uses hardcoded coordinates (mock location) as GPS data was unavailable during testing and is considered to be available in-car.  
-- Instead of DSRC (V2X), hazard alerts are **broadcast to nearby devices via Wi-Fi Direct (P2P)**.  
-This allows testing **V2X-like communication** without requiring specialized hardware.
+- **Fallback GPS Coordinates:** Uses hardcoded coordinates (mock location) as GPS data is considered to be available in-car.  
+- Instead of DSRC (V2X), hazard alerts are **broadcast to nearby devices via Wi-Fi Direct (P2P)** for now.  
+This allows testing **V2X-like communication** and **Geofencing** without requiring specialized hardware.
 
 
 | SENDER | RECEIVER |
